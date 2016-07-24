@@ -38,8 +38,10 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        // if the more information button on the action bar is pressed
+        // display the moma dialog
         if (id == R.id.action_more_info) {
-            open();
+            open();  // display and handle the dialog
             return true;
         }
 
@@ -50,14 +52,17 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Inspired by the works of artists such as Piet Mondriain and Ben Nicholson.\n\nClick below to learn more!");
 
+        // create the button which handles the Not Now action
         alertDialogBuilder.setNegativeButton("Not Now",new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(MainActivity.this,"You clicked the Cancel button", Toast.LENGTH_LONG).show();
+                // display a toast to prove the button is handled
+                Toast.makeText(MainActivity.this,"You clicked the Not Now button", Toast.LENGTH_LONG).show();
                 dialog.cancel();
             }
         });
 
+        // create the button which displays the MOMA website when pressed
         alertDialogBuilder.setPositiveButton("Visit MOMA", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
